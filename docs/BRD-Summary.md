@@ -1,7 +1,4 @@
 # Business Requirements Summary
-
-*Condensed from the project report; not a formally approved BRD.*
-
 - **Business question:** Estimate campaign cost and identify cost-efficient promotion, media, and location combinations.
 - **Decision supported:** Compare modeled cost patterns when planning campaigns and budgets.
 - **Scope:** Food Mart dataset, target `Cost`, 12 selected predictors.
