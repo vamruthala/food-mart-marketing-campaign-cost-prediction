@@ -41,33 +41,30 @@ flowchart LR
 
 *The SAS Viya flow branches into four candidate models and compares their validation results.*
 
-## Metrics and how to read them
+## Business KPIs
 
-| Metric | Meaning | Interpretation in this project |
-|---|---|---|
-| R² | Share of target variation explained by the model. | Full regression: 0.354, or about 35%. Higher is better, but it does not measure error in dollars. |
-| Adjusted R² | R² adjusted for the number of predictors and observations. | Full regression: 0.352. Helps compare models with different predictor counts; higher is better. |
-| ASE | Average squared difference between actual and predicted `Cost`. | Decision tree validation ASE: 101.4930. This was the selection metric; lower is better. Units are squared Cost units. |
-| RMSE | Square root of average squared prediction error. | Decision tree validation RMSE: 10.0744. Lower is better; expressed in Cost units. |
-| Train vs. validation error | Compares fit on training data with performance on held-out data. | Similar errors suggest more consistent generalization; a large gap can indicate overfitting. |
+| KPI | Formula | Project value | Interpretation |
+|---|---|---:|---|
+| Customer acquisition cost (CAC) | `Acquisition spend ÷ new customers acquired` | Not calculated | The model predicts the dataset’s `Cost` field, but the source does not pair campaign spend with acquired-customer counts. Do not present model output as CAC per customer. |
+| Campaign cost (`Cost`) | Dataset target field | Predicted by the models | The modeled business measure; currency/unit is not specified in the project source. |
 
-### Key formulas
+## Model Metrics
 
-- **Customer acquisition cost (general business definition):** acquisition spend ÷ number of new customers acquired.
-- **R²:** `1 − (SSE / SST)`
-- **Adjusted R²:** `1 − [(1 − R²) × (n − 1) / (n − p − 1)]`
-- **ASE:** `mean((actual Cost − predicted Cost)²)`
-- **RMSE:** `√ASE`
+| Metric | Formula / meaning | Reported value | Interpretation |
+|---|---|---:|---|
+| R² | `1 − (SSE ÷ SST)` | Full regression: **0.354** | About 35% of target variation explained in fitted data; it does not measure error in cost units. |
+| Adjusted R² | `1 − [(1 − R²) × (n − 1) ÷ (n − p − 1)]` | Full regression: **0.352** | Adjusts R² for predictors and sample size; higher is better for comparable models. |
+| ASE | `mean((actual Cost − predicted Cost)²)` | Decision tree validation: **101.4930** | Mean squared prediction error; lower is better, in squared Cost units. |
+| RMSE | `√ASE` | Decision tree validation: **10.0744** | Typical error scale in Cost units; lower is better. |
+| Train vs validation error | Compare training and held-out error | 80/20 split | A large gap can indicate overfitting; validation scores support model selection. |
 
-Here, `n` is the number of observations, `p` is the number of predictors, `SSE` is the sum of squared prediction errors, and `SST` is the total sum of squares around the target mean.
-
-**Target clarification:** This model predicts the dataset's `Cost` field. The project files do not document a separate count of newly acquired customers, so the portfolio should not claim that the model calculates spend-per-new-customer CAC as a ratio.
+`n` is observations, `p` is predictors, `SSE` is squared prediction error, and `SST` is total variation around the target mean.
 
 ### Validation model comparison
 
-| Model | ASE | RMSE |
+| Model | Validation ASE | Validation RMSE |
 |---|---:|---:|
-| Decision tree | 101.4930 | 10.0744 |
+| Decision tree | **101.4930** | **10.0744** |
 | Full linear regression | 587.1291 | 24.2307 |
 | Stepwise linear regression | 586.4916 | 24.2176 |
 | Neural network | 896.1327 | 29.9355 |
@@ -99,6 +96,7 @@ Use the decision-tree patterns to guide campaign planning, then compare predicte
 ## Evidence files
 
 The images above are selected figures extracted from the written project report. The full report and slide presentation are not included. No separate SAS Viya project file or CAC Excel workbook was present in the project folder.
+
 
 
 
