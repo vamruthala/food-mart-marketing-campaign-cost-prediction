@@ -97,7 +97,12 @@ Use the decision-tree patterns to guide campaign planning, then compare predicte
 
 The images above are selected figures extracted from the written project report. The full report and slide presentation are not included. No separate SAS Viya project file or CAC Excel workbook was present in the project folder.
 
+## Supporting documents
 
+- [Executive summary](docs/Executive-Summary.md)
+- [Business requirements summary](docs/BRD-Summary.md)
+- [Functional requirements summary](docs/FRD-Summary.md)
 
+The source reports do not document an existing-state (As-Is) process; none is presented as fact.
 
 
