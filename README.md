@@ -8,7 +8,7 @@ How can Food Mart estimate customer acquisition costs and identify cost-efficien
 
 ## My role
 
-I led the analysis in SAS Viya: explored and prepared the data, selected predictors, compared models, interpreted results, and developed business recommendations.
+My role covered the SAS Viya analysis: explored and prepared the data, selected predictors, compared models, interpreted results, and developed business recommendations.
 
 ## Data and preparation
 
@@ -16,7 +16,7 @@ I led the analysis in SAS Viya: explored and prepared the data, selected predict
 - **Dataset described in the project:** 60,428 rows and 40 columns.
 - **Target:** `Cost`.
 - **Preparation:** Selected 12 predictors across promotions and media, products, stores, and customer demographics; used an 80/20 train-validation split. The report found no missing values or outliers.
-- **Data source:** I used the Kaggle Food Mart dataset linked above, described in my project as 60,428 rows and 40 columns.
+- **Data source:** The analysis used the Kaggle Food Mart dataset linked above, described in my project as 60,428 rows and 40 columns.
 
 ## Analysis pipeline
 
@@ -37,7 +37,7 @@ flowchart LR
   G --> H[Guide campaign planning and budget review]
 ```
 
-![SAS Viya analysis pipeline](assets/sas-viya-analysis-pipeline.png)
+![SAS Viya analysis pipeline](data_visualization_and_analysis/sas-viya-analysis-pipeline.png)
 
 *The SAS Viya flow branches into four candidate models and compares their validation results.*
 
@@ -83,19 +83,19 @@ Use the decision-tree patterns to guide campaign planning, then compare predicte
 
 ### Decision tree variable importance
 
-![Decision tree variable importance](assets/decision-tree-variable-importance.png)
+![Decision tree variable importance](data_visualization_and_analysis/decision-tree-variable-importance.png)
 
 *Validation importance ranks promotion name, media type, city, and state highest.*
 
 ### SAS Viya model comparison
 
-![SAS Viya model comparison table](assets/model-comparison.png)
+![SAS Viya model comparison table](data_visualization_and_analysis/model-comparison.png)
 
 *Validation results are shown for 12,086 records; the decision tree has the lowest ASE and RMSE.*
 
 ## Evidence files
 
-I use the model-comparison and variable-importance visuals in `assets/` to explain champion selection and feature impact.
+My analysis uses the model-comparison and variable-importance visuals in `data_visualization_and_analysis/` to explain champion selection and feature impact.
 
 ## Supporting documents
 
