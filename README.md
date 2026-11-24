@@ -16,7 +16,7 @@ I led the analysis in SAS Viya: explored and prepared the data, selected predict
 - **Dataset described in the project:** 60,428 rows and 40 columns.
 - **Target:** `Cost`.
 - **Preparation:** Selected 12 predictors across promotions and media, products, stores, and customer demographics; used an 80/20 train-validation split. The report found no missing values or outliers.
-- **Data file:** No separate project dataset file was found in the folder, so this portfolio links to the Kaggle source rather than redistributing the dataset.
+- **Data source:** I used the Kaggle Food Mart dataset linked above, described in my project as 60,428 rows and 40 columns.
 
 ## Analysis pipeline
 
@@ -95,14 +95,10 @@ Use the decision-tree patterns to guide campaign planning, then compare predicte
 
 ## Evidence files
 
-The images above are selected figures extracted from the written project report. The full report and slide presentation are not included. No separate SAS Viya project file or CAC Excel workbook was present in the project folder.
+I use the model-comparison and variable-importance visuals in `assets/` to explain champion selection and feature impact.
 
 ## Supporting documents
 
 - [Executive summary](docs/Executive-Summary.md)
 - [Business requirements summary](docs/BRD-Summary.md)
 - [Functional requirements summary](docs/FRD-Summary.md)
-
-The source reports do not document an existing-state (As-Is) process; none is presented as fact.
-
-
