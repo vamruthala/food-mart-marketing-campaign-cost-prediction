@@ -20,12 +20,22 @@ I led the analysis in SAS Viya: explored and prepared the data, selected predict
 
 ## Analysis pipeline
 
-1. **Explore:** Reviewed distributions, data types, missingness, outliers, and relationships with `Cost`.
-2. **Select:** Chose 12 predictors after reviewing variable relevance and data quality.
-3. **Prepare:** Partitioned the data 80/20 and applied the SAS Viya imputation step; the report says the data had no missing values.
-4. **Model:** Compared full linear regression, stepwise linear regression, decision tree, and neural network.
-5. **Evaluate:** Compared training and validation performance; selected the champion by lowest ASE.
-6. **Recommend:** Use the model's promotion, media, and location patterns to inform campaign planning and budget allocation.
+```mermaid
+flowchart LR
+  A[Kaggle Food Mart data] --> B[Explore quality and Cost patterns]
+  B --> C[Select 12 predictors]
+  C --> D[80/20 train-validation split]
+  D --> E1[Full regression]
+  D --> E2[Stepwise regression]
+  D --> E3[Decision tree]
+  D --> E4[Neural network]
+  E1 --> F[Compare validation ASE and RMSE]
+  E2 --> F
+  E3 --> F
+  E4 --> F
+  F --> G[Select decision tree champion]
+  G --> H[Guide campaign planning and budget review]
+```
 
 ![SAS Viya analysis pipeline](assets/sas-viya-analysis-pipeline.png)
 
@@ -68,6 +78,10 @@ Here, `n` is the number of observations, `p` is the number of predictors, `SSE` 
 - Promotion, media type, and store location ranked as influential; customer demographic variables contributed comparatively little.
 - The model can inform campaign planning and budget allocation. This is an analysis-based recommendation, not a verified production savings claim.
 
+## Recommendations
+
+Use the decision-tree patterns to guide campaign planning, then compare predicted costs with actual campaign costs and newly acquired customer counts in a prospective pilot. Reallocate budget only after that evaluation shows a repeatable improvement; this project does not report realized savings.
+
 ## Selected report visuals
 
 ### Decision tree variable importance
@@ -85,4 +99,7 @@ Here, `n` is the number of observations, `p` is the number of predictors, `SSE` 
 ## Evidence files
 
 The images above are selected figures extracted from the written project report. The full report and slide presentation are not included. No separate SAS Viya project file or CAC Excel workbook was present in the project folder.
+
+
+
 
